@@ -5,6 +5,7 @@ This repository contains C++ implementations of fundamental Graph algorithms for
 
 -  Disjoint Set Union (DSU) with Union by Rank and Path Compression
 -  Dijkstra’s Algorithm
+-  Dijkstra’s Algorithm (2D)
 -  Bellman-Ford Algorithm
 -  Floyd-Warshall Algorithm
 -  Prim’s Minimum Spanning Tree (MST)
