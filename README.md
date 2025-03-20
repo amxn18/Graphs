@@ -1,6 +1,4 @@
 # Graphs
-C++ implementations of essential Graph algorithms including DSU, Dijkstra, Bellman-Ford, Floyd-Warshall, Prim's, Kruskal's, Euler Path, and Hierholzer's Algorithm.
-
 This repository contains C++ implementations of fundamental Graph algorithms for competitive programming and DSA preparation. Each file is well-structured and tested for clarity and correctness.
 
 ## Algorithms Included
