@@ -5,6 +5,7 @@ This repository contains C++ implementations of fundamental Graph algorithms for
 
 -  Disjoint Set Union (DSU) with Union by Rank and Path Compression
 -  Traversal --> BFS/DFS
+-  Topological Sort 
 -  Bipatritie DFS/BFS
 -  Kahn's Algorithm
 -  Dijkstra’s Algorithm
