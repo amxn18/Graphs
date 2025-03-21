@@ -13,6 +13,7 @@ This repository contains C++ implementations of fundamental Graph algorithms for
 -  Floyd-Warshall Algorithm
 -  Prim’s Minimum Spanning Tree (MST)
 -  Kruskal’s MST Algorithm
+-  Kosaraju's Algorithm
 -  Euler Path in Directed/Undirected Graph
 -  Hierholzer's Algorithm for Eulerian Circuit
 
