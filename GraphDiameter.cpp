@@ -1,57 +1,42 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Solution {
-public:
-    // BFS function to find the farthest node and distance from the given start node
-    int bfs(int start, unordered_map<int, vector<int>>& adj, vector<bool>& visited, int& farthestNode) {
-        queue<pair<int, int>> q;
-        q.push({start, 0});
-        visited[start] = true;
+// Function to perform BFS and return the farthest node and its distance from the source
+pair<int, int> bfs(unordered_map<int, vector<int>> adj, int source) {
+    queue<int> q;
+    q.push(source);
+    unordered_map<int, bool> visited;
+    visited[source] = true;
 
-        int maxDist = 0;
+    int distance = 0;
+    int farthestNode = source;
 
-        while (!q.empty()) {
-            auto [node, dist] = q.front();
+    while (!q.empty()) {
+        int n = q.size();
+        while (n--) {
+            int curr = q.front();
             q.pop();
+            farthestNode = curr;
 
-            if (dist > maxDist) {
-                maxDist = dist;
-                farthestNode = node;
-            }
-
-            for (int neighbor : adj[node]) {
-                if (!visited[neighbor]) {
-                    visited[neighbor] = true;
-                    q.push({neighbor, dist + 1});
+            for (auto &neighbour : adj[curr]) {
+                if (!visited[neighbour]) {
+                    visited[neighbour] = true;
+                    q.push(neighbour);
                 }
             }
         }
-        return maxDist;
+        if (!q.empty()) distance++;
     }
 
-    int treeDiameter(vector<vector<int>>& edges) {
-        unordered_map<int, vector<int>> adj;
-        int n = 0; // number of nodes (we'll find max node index to size visited vector)
+    return {farthestNode, distance};
+}
 
-        // Build adjacency list
-        for (auto& edge : edges) {
-            int u = edge[0], v = edge[1];
-            adj[u].push_back(v);
-            adj[v].push_back(u);
-            n = max(n, max(u, v));
-        }
+int findDia(unordered_map<int, vector<int>> adj){
+    // Find the farthest node from a random node --> 0
+    auto [farthestNode, dist] = bfs(adj, 0);
+    // Farthest node we got is one end of diameter
+    // Find the farthest node from the node we got above that will be the other end of dia
+    auto[otherNode, diameter] = bfs(adj, farthestNode); 
+    return diameter;
+}
 
-        vector<bool> visited(n + 1, false);
-        int farthestNode = -1;
-
-        // First BFS to find farthest node from any starting point
-        bfs(edges[0][0], adj, visited, farthestNode);
-
-        // Second BFS from farthest node to find the diameter
-        fill(visited.begin(), visited.end(), false); // reset visited
-        int diameter = bfs(farthestNode, adj, visited, farthestNode);
-
-        return diameter;
-    }
-};
