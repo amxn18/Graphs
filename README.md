@@ -17,6 +17,7 @@ This repository contains C++ implementations of fundamental Graph algorithms for
 -  Kosaraju's Algorithm
 -  Euler Path in Directed/Undirected Graph
 -  Hierholzer's Algorithm for Eulerian Circuit
+-  Graph Diameter
 
 ## Folder Structure
 
